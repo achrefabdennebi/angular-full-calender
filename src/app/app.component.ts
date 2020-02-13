@@ -65,7 +65,7 @@ export class AppComponent  {
 
   visibleRange = {
     start: '2020-02-10',
-    end: '2020-02-13'
+    end: '2020-02-14'
   }
 
   public eventRender(info, eventElement): void {
@@ -75,8 +75,6 @@ export class AppComponent  {
     oImg.setAttribute('width', '20px');
     oImg.setAttribute('src', 'https://img.icons8.com/dusk/64/000000/compact-camera.png');
     info.el.prepend(oImg);
-    console.log(eventElement);
-    console.log(info)
   }
 
   slotDuration = {days: 1};
