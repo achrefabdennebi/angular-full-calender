@@ -1,14 +1,19 @@
 <hello name="{{ name }}"></hello>
 <full-calendar 
-defaultView="resourceTimelineMonth"
-[timeZone]="timeZone"
-[header]="header"
-[aspectRatio]="aspectRatio"
-[locale]="locale"
-[editable]="editable"
-[events]="dataEvents" 
-[resources]="'https://fullcalendar.io/demo-resources.json?with-nesting&with-colors'"
-[plugins]="calendarPlugins"
+  defaultView="resourceTimeline"
+  [timeZone]="timeZone"
+  [header]="header"
+  [aspectRatio]="aspectRatio"
+  [locale]="locale"
+  [editable]="editable"
+  [events]="dataEvents"
+  [slotLabelFormat] ="slotLabelFormat"
+  [resourceColumns]="resourceColumns"
+  [resources]="ressources"
+  [resourceLabelText]="'FFF'"
+  [visibleRange]="visibleRange"
+  [views]="views"
+  [slotDuration]="slotDuration"
+  [plugins]="calendarPlugins"
 >
-
 </full-calendar>

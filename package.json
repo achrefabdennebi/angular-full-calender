@@ -14,9 +14,11 @@
     "@fullcalendar/core": "^4.4.0",
     "@fullcalendar/daygrid": "^4.4.0",
     "@fullcalendar/interaction": "^4.4.0",
+    "@fullcalendar/moment": "^4.4.0",
     "@fullcalendar/resource-timeline": "^4.4.0",
     "@fullcalendar/timeline": "^4.4.0",
     "core-js": "2",
+    "moment": "^2.24.0",
     "rxjs": "^6.5.2",
     "zone.js": "^0.9.1"
   },
