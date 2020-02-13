@@ -31,7 +31,7 @@ export class AppComponent  {
       { month: 'long', year: 'numeric' }, // top level of text
       { weekday: 'short', day: 'numeric' }
   ]
-
+  
   resourceColumns = [
     {
       field: 'title',
@@ -68,7 +68,16 @@ export class AppComponent  {
     end: '2020-02-13'
   }
 
-  //  duration = { days: 20 };
+  public eventRender(info, eventElement): void {
+    const oImg = document.createElement("img");
+    oImg.setAttribute('alt', 'na');
+    oImg.setAttribute('height', '20px');
+    oImg.setAttribute('width', '20px');
+    oImg.setAttribute('src', 'https://img.icons8.com/dusk/64/000000/compact-camera.png');
+    info.el.prepend(oImg);
+    console.log(eventElement);
+    console.log(info)
+  }
 
   slotDuration = {days: 1};
   

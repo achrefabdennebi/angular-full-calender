@@ -15,5 +15,6 @@
   [views]="views"
   [slotDuration]="slotDuration"
   [plugins]="calendarPlugins"
+  (eventRender)="eventRender($event)"
 >
 </full-calendar>
