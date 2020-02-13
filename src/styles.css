@@ -1,0 +1,4 @@
+/* Add application styles & imports to this file! */
+@import '~@fullcalendar/core/main.css';
+@import '~@fullcalendar/resource-timeline/main.css';
+@import '~@fullcalendar/timeline/main.css';
