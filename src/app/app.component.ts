@@ -92,7 +92,6 @@ export class AppComponent  {
     if (event.date.getTime() === new Date(2020,1,19).setHours(1,0,0,0) ||
     event.date.getTime() === new Date(2020,1,26).setHours(1,0,0,0) 
     ) {
-      console.log(event.el);
        event.el.className = event.el.className.concat(' fc-holiday'); 
     }
   }
@@ -154,8 +153,8 @@ export class AppComponent  {
     },    
     { resourceId: "b",
       title: "event 5",
-      start: "2019-02-14T10:00:00+00:00",
-      end: "2020-02-15T15:00:00+00:00",
+      start: "2020-02-14",
+      end: "2020-02-18",
       backgroundColor: "#F78764",
       classNames: "event-4"
     },    
