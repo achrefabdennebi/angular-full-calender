@@ -42,6 +42,7 @@ export class AppComponent  {
 
   slotLabelFormat = [
       { month: 'long', year: 'numeric' }, // top level of text
+      { week: 'narrow'},
       { weekday: 'short', day: 'numeric' }
   ]
   
