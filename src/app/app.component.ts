@@ -65,7 +65,7 @@ export class AppComponent  {
 
   visibleRange = {
     start: '2020-02-10',
-    end: '2020-02-14'
+    end: '2021-03-23'
   }
 
   public eventRender(info, eventElement): void {
@@ -77,7 +77,27 @@ export class AppComponent  {
     info.el.prepend(oImg);
   }
 
-  slotDuration = {days: 1};
+  public eventClick(info): void {
+    console.log(info);
+  }
+
+  public handleDateClick(evnt) {
+    console.log(evnt);
+  }
+
+
+
+  public dayRender(event) {
+    console.log(event.date );
+    if (event.date.getTime() === new Date(2020,1,19).setHours(1,0,0,0) ||
+    event.date.getTime() === new Date(2020,1,26).setHours(1,0,0,0) 
+    ) {
+      console.log(event.el);
+       event.el.className = event.el.className.concat(' fc-holiday'); 
+    }
+  }
+
+  slotDuration = {hours: 1};
   
   ressources = [
       { id: 'a', title: 'Auditorium A', type: "Plant" },
@@ -113,29 +133,46 @@ export class AppComponent  {
       resourceId: "d",
       title: "event 1",
       start: "2020-02-12",
-      end: "2020-02-14"
+      end: "2020-02-14",
+      backgroundColor: "#78D5D7",
+      classNames: "event-1"
     },    
     {      
       resourceId: "c",
       title: "event 3",
       start: "2020-02-13T12:00:00+00:00",
-      end: "2020-02-14T06:00:00+00:00"
+      end: "2020-02-14T06:00:00+00:00",
+      backgroundColor: "#DA4167",
+      classNames: "event-2"
     },{     
       resourceId: "f",
       title: "event 4",
       start: "2020-02-13T07:30:00+00:00",
-      end: "2020-02-13T09:30:00+00:00"
+      end: "2020-02-13T09:30:00+00:00",
+      backgroundColor: "#F78764",
+      classNames: "event-3"
     },    
     { resourceId: "b",
       title: "event 5",
-      start: "2020-02-13T10:00:00+00:00",
-      end: "2020-02-13T15:00:00+00:00"
+      start: "2019-02-14T10:00:00+00:00",
+      end: "2020-02-15T15:00:00+00:00",
+      backgroundColor: "#F78764",
+      classNames: "event-4"
     },    
     {      
       resourceId: "e",
       title: "event 2",
       start: "2020-02-13T09:00:00+00:00",
-      end: "2020-02-13T14:00:00+00:00"
+      end: "2020-02-13T14:00:00+00:00",
+      backgroundColor: "#C1EEFF",
+      classNames: "event-5"
+    },
+    {
+      daysOfWeek: [0,6], //Sundays and saturdays
+      rendering:"background",
+      color: "#ff9f89",
+      overLap: false,
+      allDay: true
     }
   ]
 }

@@ -16,5 +16,9 @@
   [slotDuration]="slotDuration"
   [plugins]="calendarPlugins"
   (eventRender)="eventRender($event)"
+  (eventClick)="eventClick($event)"
+  [weekends]= "true"
+  (dateClick)="handleDateClick($event)"
+  (dayRender)="dayRender($event)"
 >
 </full-calendar>
