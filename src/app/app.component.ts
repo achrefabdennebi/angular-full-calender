@@ -90,8 +90,10 @@ export class AppComponent  {
     info.el.prepend(oImg);
   }
 
-  public eventClick(info): void {
-    this.popoverElementRef.clear();
+  public eventClick(info): void {}
+
+  public eventMouseEnter(info) {
+    console.log(info)
     const factory = this.factoryResolver.resolveComponentFactory(HelloComponent);
     const componentRef = this.popoverElementRef.createComponent(factory);
     
@@ -101,11 +103,17 @@ export class AppComponent  {
           element: componentRef.location.nativeElement,
           target: info.el,
           attachment: 'bottom left',
-          targetAttachment: 'top left',
+          targetAttachment: 'bottom left',
           classes: {
               element: 'event-tooltip'
-          }
+          },
+          targetOffset: '5px 0'
+
     });
+  }
+
+  public eventMouseLeave(info) {
+    this.popoverElementRef.clear();
   }
 
   public handleDateClick(evnt) {
