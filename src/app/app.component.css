@@ -17,3 +17,10 @@ p {
 .fc-holiday {
   background-color: #aaacef;
 }
+
+.event-tooltip {
+  z-index: 1;
+  background-color: chartreuse;
+  border-radius: 13px;
+}
+    

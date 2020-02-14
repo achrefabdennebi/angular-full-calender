@@ -1,8 +1,15 @@
-import { Component, ViewEncapsulation
- } from '@angular/core';
+import { Component,
+ ViewEncapsulation,
+ ViewChild,
+ ViewContainerRef,
+ ComponentFactoryResolver
+} from '@angular/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import resourceTimelinePlugin from '@fullcalendar/resource-timeline';
 import interaction from '@fullcalendar/interaction';
+import { HelloComponent } from './hello.component';
+import Tether from 'tether';
+
 @Component({
   selector: 'my-app',
   templateUrl: './app.component.html',
@@ -11,6 +18,12 @@ import interaction from '@fullcalendar/interaction';
 
 })
 export class AppComponent  {
+
+  @ViewChild('popoverElementRef', { read: ViewContainerRef, static: true }) popoverElementRef: ViewContainerRef;
+
+
+  constructor(private factoryResolver: ComponentFactoryResolver) {}
+
   name = 'FULL Calender';
   calendarPlugins = [ interaction, resourceTimelinePlugin]; // important!
 
@@ -78,17 +91,28 @@ export class AppComponent  {
   }
 
   public eventClick(info): void {
-    console.log(info);
+    this.popoverElementRef.clear();
+    const factory = this.factoryResolver.resolveComponentFactory(HelloComponent);
+    const componentRef = this.popoverElementRef.createComponent(factory);
+    
+    (<HelloComponent>componentRef.instance).name = info.event.title
+    
+    new Tether({
+          element: componentRef.location.nativeElement,
+          target: info.el,
+          attachment: 'bottom left',
+          targetAttachment: 'top left',
+          classes: {
+              element: 'event-tooltip'
+          }
+    });
   }
 
   public handleDateClick(evnt) {
     console.log(evnt);
   }
 
-
-
   public dayRender(event) {
-    console.log(event.date );
     if (event.date.getTime() === new Date(2020,1,19).setHours(1,0,0,0) ||
     event.date.getTime() === new Date(2020,1,26).setHours(1,0,0,0) 
     ) {
@@ -132,7 +156,7 @@ export class AppComponent  {
       resourceId: "d",
       title: "event 1",
       start: "2020-02-12",
-      end: "2020-02-14",
+      end: "2020-02-15",
       backgroundColor: "#78D5D7",
       classNames: "event-1"
     },    
@@ -140,14 +164,14 @@ export class AppComponent  {
       resourceId: "c",
       title: "event 3",
       start: "2020-02-13T12:00:00+00:00",
-      end: "2020-02-14T06:00:00+00:00",
+      end: "2020-02-19T06:00:00+00:00",
       backgroundColor: "#DA4167",
       classNames: "event-2"
     },{     
       resourceId: "f",
       title: "event 4",
-      start: "2020-02-13T07:30:00+00:00",
-      end: "2020-02-13T09:30:00+00:00",
+      start: "2020-02-14T07:30:00+00:00",
+      end: "2020-02-18T09:30:00+00:00",
       backgroundColor: "#F78764",
       classNames: "event-3"
     },    
@@ -162,7 +186,7 @@ export class AppComponent  {
       resourceId: "e",
       title: "event 2",
       start: "2020-02-13T09:00:00+00:00",
-      end: "2020-02-13T14:00:00+00:00",
+      end: "2020-02-18T14:00:00+00:00",
       backgroundColor: "#C1EEFF",
       classNames: "event-5"
     },
