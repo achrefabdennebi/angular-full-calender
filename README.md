@@ -1,3 +1,3 @@
 # angular-uhtvag
 
-[Edit on StackBlitz ⚡️](https://stackblitz.com/edit/angular-uhtvag)
+[Demo on StackBlitz ⚡️](https://angular-full-calender.stackblitz.io)
